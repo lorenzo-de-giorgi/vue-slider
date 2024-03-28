@@ -21,7 +21,7 @@
         <div class="container" id="cont">
             <div class="slider-wrapper" tabindex="0">
 
-                <div class="item">
+                <div class="item" @mouseover="sliderOff" @mouseleave="sliderOn">
                     <img :src="slides[activeIndexSlide].image" :alt="slides[activeIndexSlide].title" />
                     <div class="text">
                         <h3>{{ slides[activeIndexSlide].title }}</h3>
@@ -32,7 +32,7 @@
                 <div class="thumbs">
                     <div class="prev" @click="prevImg"></div>
                     <div class="next" @click="nextImg"></div>
-                    <div id="thumb-id" class="thumb" :class="{'active' : index === activeIndexSlide}" v-for="(slide, index) in slides" ::key="index" @click="goToImg(index)" @mouseover="sliderOff" @mouseleave="sliderOn">
+                    <div id="thumb-id" class="thumb" :class="{'active' : index === activeIndexSlide}" v-for="(slide, index) in slides" ::key="index" @click="goToImg(index)">
                         <img :src="slide.image" :alt="slide.title"/>
                     </div>
                 </div>
