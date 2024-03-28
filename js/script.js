@@ -5,7 +5,7 @@ createApp({
     data(){
         return{
             slides: slides,
-            activeIndexSlide: 0
+            activeIndexSlide: 0,
         }
     },
     methods: {
@@ -26,12 +26,16 @@ createApp({
         goToImg(index){
             this.activeIndexSlide = index
         },
+        sliderOff() {
+            clearInterval(this.slider);
+        },
+        sliderOn() {
+            this.slider = setInterval(() => {
+                this.nextImg();
+            }, 3000);
+        }
     },
     mounted() {
-        let intImg = setInterval(this.nextImg, 3000);
-        let int = document.getElementById('thumb-id');
-        int.addEventListener('mouseover', function(){
-            clearInterval(intImg);
-        })
-    },
+        this.sliderOn();
+    }
 }).mount('#app')

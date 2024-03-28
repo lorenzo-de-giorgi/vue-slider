@@ -32,7 +32,7 @@
                 <div class="thumbs">
                     <div class="prev" @click="prevImg"></div>
                     <div class="next" @click="nextImg"></div>
-                    <div id="thumb-id" class="thumb" :class="{'active' : index === activeIndexSlide}" v-for="(slide, index) in slides" ::key="index" @click="goToImg(index)">
+                    <div id="thumb-id" class="thumb" :class="{'active' : index === activeIndexSlide}" v-for="(slide, index) in slides" ::key="index" @click="goToImg(index)" @mouseover="sliderOff" @mouseleave="sliderOn">
                         <img :src="slide.image" :alt="slide.title"/>
                     </div>
                 </div>
