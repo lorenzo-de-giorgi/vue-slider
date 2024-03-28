@@ -9,22 +9,25 @@ createApp({
         }
     },
     methods: {
-        // nextImg(){
-        //     if(this.activeIndexSlide < this.slides.length - 1){
-        //         this.activeIndexSlide++
-        //     } else {
-        //         this.activeIndexSlide = 0
-        //     }
-        // },
-        // prevImg(){
-        //     if(this.activeIndexSlide > 0){
-        //         this.activeIndexSlide--;
-        //     } else {
-        //         this.activeIndexSlide = this.slides.length -1;
-        //     }
-        // }
+        nextImg(){
+            if(this.activeIndexSlide < this.slides.length - 1){
+                this.activeIndexSlide++
+            } else {
+                this.activeIndexSlide = 0
+            }
+        },
+        prevImg(){
+            if(this.activeIndexSlide > 0){
+                this.activeIndexSlide--;
+            } else {
+                this.activeIndexSlide = this.slides.length -1;
+            }
+        },
+        goToImg(index){
+            this.activeIndexSlide = index
+        },
     },
     mounted() {
-        
+        let intImg = setInterval(this.nextImg, 3000);
     },
 }).mount('#app')
