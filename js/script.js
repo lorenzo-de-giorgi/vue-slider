@@ -29,5 +29,9 @@ createApp({
     },
     mounted() {
         let intImg = setInterval(this.nextImg, 3000);
+        let int = document.getElementById('thumb-id');
+        int.addEventListener('mouseover', function(){
+            clearInterval(intImg);
+        })
     },
 }).mount('#app')
